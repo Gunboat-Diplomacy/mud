@@ -22,7 +22,7 @@ By using `WithStore(address(this))` as the first contract that the implementatio
 contract ERC20WithInternalStore is WithStore(address(this)), MUDERC20, ERC20Pausable, ERC20Burnable, Ownable {
   constructor() MUDERC20("MyERC20", "MTK") Ownable(_msgSender()) {}
 
-  function mint() public onlyOwner {
+  function mint(address to, uint256 value) public onlyOwner {
     _mint(to, value);
   }
 
